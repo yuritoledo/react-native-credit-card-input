@@ -23,8 +23,8 @@ const s = StyleSheet.create({
     right: 15,
     width: 60,
     height: 40,
-    resizeMode: "contain",
   },
+  resizeMode: "contain",
   baseText: {
     color: "rgba(255, 255, 255, 0.8)",
     backgroundColor: "transparent",
@@ -75,7 +75,6 @@ const s = StyleSheet.create({
   },
 });
 
-/* eslint react/prop-types: 0 */ // https://github.com/yannickcr/eslint-plugin-react/issues/106
 export default class CardView extends Component {
   static propTypes = {
     focused: PropTypes.string,
@@ -119,10 +118,12 @@ export default class CardView extends Component {
     const shouldFlip = !isAmex && focused === "cvc";
 
     const containerSize = { ...BASE_SIZE, height: BASE_SIZE.height * scale };
-    const transform = { transform: [
-      { scale },
-      { translateY: ((BASE_SIZE.height * (scale - 1) / 2)) },
-    ] };
+    const transform = {
+      transform: [
+        { scale },
+        { translateY: ((BASE_SIZE.height * (scale - 1) / 2)) },
+      ]
+    };
 
     return (
       <View style={[s.cardContainer, containerSize]}>
@@ -135,31 +136,31 @@ export default class CardView extends Component {
           flip={shouldFlip}>
           <ImageBackground style={[BASE_SIZE, s.cardFace, transform]}
             source={imageFront}>
-              <Image style={[s.icon]}
-                source={Icons[brand]} />
-              <Text style={[s.baseText, { fontFamily }, s.number, !number && s.placeholder, focused === "number" && s.focused]}>
-                { !number ? placeholder.number : number }
+            <Image style={[s.icon]}
+              source={Icons[brand]} />
+            <Text style={[s.baseText, { fontFamily }, s.number, !number && s.placeholder, focused === "number" && s.focused]}>
+              {!number ? placeholder.number : number}
+            </Text>
+            <Text style={[s.baseText, { fontFamily }, s.name, !name && s.placeholder, focused === "name" && s.focused]}
+              numberOfLines={1}>
+              {!name ? placeholder.name : name.toUpperCase()}
+            </Text>
+            <Text style={[s.baseText, { fontFamily }, s.expiryLabel, s.placeholder, focused === "expiry" && s.focused]}>
+              MONTH/YEAR
               </Text>
-              <Text style={[s.baseText, { fontFamily }, s.name, !name && s.placeholder, focused === "name" && s.focused]}
-                numberOfLines={1}>
-                { !name ? placeholder.name : name.toUpperCase() }
-              </Text>
-              <Text style={[s.baseText, { fontFamily }, s.expiryLabel, s.placeholder, focused === "expiry" && s.focused]}>
-                MONTH/YEAR
-              </Text>
-              <Text style={[s.baseText, { fontFamily }, s.expiry, !expiry && s.placeholder, focused === "expiry" && s.focused]}>
-                { !expiry ? placeholder.expiry : expiry }
-              </Text>
-              { isAmex &&
-                  <Text style={[s.baseText, { fontFamily }, s.amexCVC, !cvc && s.placeholder, focused === "cvc" && s.focused]}>
-                    { !cvc ? placeholder.cvc : cvc }
-                  </Text> }
+            <Text style={[s.baseText, { fontFamily }, s.expiry, !expiry && s.placeholder, focused === "expiry" && s.focused]}>
+              {!expiry ? placeholder.expiry : expiry}
+            </Text>
+            {isAmex &&
+              <Text style={[s.baseText, { fontFamily }, s.amexCVC, !cvc && s.placeholder, focused === "cvc" && s.focused]}>
+                {!cvc ? placeholder.cvc : cvc}
+              </Text>}
           </ImageBackground>
           <ImageBackground style={[BASE_SIZE, s.cardFace, transform]}
             source={imageBack}>
-              <Text style={[s.baseText, s.cvc, !cvc && s.placeholder, focused === "cvc" && s.focused]}>
-                { !cvc ? placeholder.cvc : cvc }
-              </Text>
+            <Text style={[s.baseText, s.cvc, !cvc && s.placeholder, focused === "cvc" && s.focused]}>
+              {!cvc ? placeholder.cvc : cvc}
+            </Text>
           </ImageBackground>
         </FlipCard>
       </View>
