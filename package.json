@@ -1,0 +1,52 @@
+{
+  "name": "react-native-credit-card-input",
+  "version": "0.4.2",
+  "description": "React native credit card input component",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint --ext .js ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuritoledo/react-native-credit-card-input.git"
+  },
+  "keywords": [
+    "react-native",
+    "ios",
+    "android",
+    "credit-card",
+    "credit-card input",
+    "skeuomorphic credit-card",
+    "form",
+    "flip",
+    "card",
+    "input",
+    "component",
+    "react-component",
+    "react-native-component"
+  ],
+  "author": "yuritoledo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yuritoledo/react-native-credit-card-input/issues"
+  },
+  "homepage": "https://github.com/yuritoledo/react-native-credit-card-input#readme",
+  "dependencies": {
+    "card-validator": "^3.0.0",
+    "prop-types": "^15.6.0",
+    "react-native-flip-card": "^3.4.1",
+    "lodash.compact": "^3.0.1",
+    "lodash.every": "^4.6.0",
+    "lodash.pick": "^4.4.0",
+    "lodash.values": "^4.3.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^5.0.0",
+    "babel-polyfill": "^6.6.1",
+    "babel-preset-react-native": "^1.8.0",
+    "eslint": "~2.2.0",
+    "eslint-config-airbnb": "6.0.2",
+    "eslint-plugin-react": "^4.2.0"
+  }
+}
