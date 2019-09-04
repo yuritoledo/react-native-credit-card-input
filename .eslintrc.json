@@ -1,71 +1,138 @@
 {
-  "extends": "airbnb",
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
   "plugins": [
     "react"
   ],
-  "parser": "babel-eslint",
-  "globals": {
-    "it": false,
-    "before": false,
-    "after": false,
-    "beforeEach": false,
-    "afterEach": false,
-    "describe": false,
-    "stub": false,
-    "spy": false,
-    "mock": false,
-    "clock": false,
-    "ErrorUtils": false,
-    "expect": false,
-    "fail": false
-  },
   "rules": {
-    "react/jsx-filename-extension": 0,
-    "no-underscore-dangle": 0,
-    "no-console": 0,
-    "react/self-closing-comp": 0,
-    "no-unused-expressions": 0,
-    "max-len": [
-      2,
-      150,
-      4,
+    "linebreak-style": [
+      "warn",
+      "unix"
+    ],
+    "no-multiple-empty-lines": [
+      "warn",
       {
-        "ignoreUrls": true
+        "max": 2,
+        "maxEOF": 1
       }
     ],
-    "new-cap": [
-      2,
+    "no-unused-vars": "warn",
+    "vars-on-top": "warn",
+    "no-console": [
+      "warn",
       {
-        "capIsNewExceptions": [
-          "Map",
-          "List",
-          "Stack",
-          "Record"
+        "allow": [
+          "warn",
+          "error"
         ]
       }
     ],
-    "func-names": 0,
-    "quotes": [
-      2,
-      "double"
-    ],
-    "react/jsx-indent-props": [
-      2,
-      2
-    ],
-    "react/jsx-closing-bracket-location": [
-      2,
-      "after-props"
-    ],
-    "no-use-before-define": [
+    "indent": [
+      "warn",
       2,
       {
-        "functions": false
+        "SwitchCase": 1
       }
     ],
-    "react/prefer-stateless-function": 0,
-    "arrow-body-style": 0,
-    "no-nested-ternary": 0,
-    "react/prop-types": 0
+    "comma-spacing": "warn",
+    "space-infix-ops": "warn",
+    "no-trailing-spaces": "warn",
+    "no-unreachable": "off",
+    "template-curly-spacing": "warn",
+    "prefer-template": "warn",
+    "no-debugger": "warn",
+    "no-extra-boolean-cast": "warn",
+    "no-irregular-whitespace": "warn",
+    "no-multi-spaces": "warn",
+    "no-template-curly-in-string": "warn",
+    "no-unneeded-ternary": "warn",
+    "no-case-declarations": "off",
+    "no-unused-expressions": "off",
+    "no-else-return": "warn",
+    "no-restricted-globals": "off",
+    "no-use-before-define": "off",
+    "no-mixed-spaces-and-tabs": "warn",
+    "no-extra-parens": "off",
+    "object-shorthand": "warn",
+    "prefer-arrow-callback": "warn",
+    "no-duplicate-imports": "warn",
+    "arrow-spacing": "warn",
+    "no-sequences": "off",
+    "no-lonely-if": "warn",
+    "jsx-quotes": [
+      "warn",
+      "prefer-single"
+    ],
+    "quotes": [
+      "warn",
+      "single"
+    ],
+    "object-curly-spacing": [
+      "warn",
+      "always"
+    ],
+    "key-spacing": "warn",
+    "semi": [
+      "warn",
+      "never"
+    ],
+    "arrow-parens": [
+      "warn",
+      "as-needed"
+    ],
+    "react/self-closing-comp": [
+      "warn",
+      {
+        "component": true
+      }
+    ],
+    "react/jsx-closing-bracket-location": [
+      1,
+      "tag-aligned"
+    ],
+    "react/jsx-max-props-per-line": [
+      1,
+      {
+        "when": "multiline"
+      }
+    ],
+    "react/jsx-first-prop-new-line": [
+      1,
+      "multiline"
+    ],
+    "react/jsx-tag-spacing": [
+      1,
+      {
+        "closingSlash": "never",
+        "beforeSelfClosing": "always",
+        "afterOpening": "never",
+        "beforeClosing": "never"
+      }
+    ],
+    "react/prop-types": "off",
+    "react/prefer-stateless-function": [
+      1
+    ],
+    "react/no-deprecated": "off",
+    "comma-dangle": "off",
+    "react/display-name": "off",
+    "import/no-unresolved": "error"
   }
 }
