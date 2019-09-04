@@ -133,6 +133,6 @@
     "react/no-deprecated": "off",
     "comma-dangle": "off",
     "react/display-name": "off",
-    "import/no-unresolved": "error"
+    "import/no-unresolved": "off"
   }
 }
