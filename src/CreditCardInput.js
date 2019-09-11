@@ -146,7 +146,7 @@ export default class CreditCardInput extends Component {
   render() {
     const {
       cardImageFront, cardImageBack, inputContainerStyle,
-      values: { number, expiry, cvc, name, type }, focused,
+      values: { number, expiry, cvc, name, type }, focused, placeholderCardView,
       allowScroll, requiresName, requiresCVC, requiresPostalCode,
       cardScale, cardFontFamily, cardBrandIcons,
     } = this.props;
@@ -160,6 +160,7 @@ export default class CreditCardInput extends Component {
           imageFront={cardImageFront}
           imageBack={cardImageBack}
           customIcons={cardBrandIcons}
+          placeholder={placeholderCardView}
           name={requiresName ? name : " "}
           number={number}
           expiry={expiry}

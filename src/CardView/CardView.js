@@ -36,6 +36,7 @@ const defaultProps = {
   placeholder: {
     number: '•••• •••• •••• ••••',
     name: 'NOME',
+    expiryTitle: "MONTH/YEAR",
     expiry: '••/••',
     cvc: '•••',
   },
@@ -52,6 +53,7 @@ const CardView = props => {
     brand,
     name,
     number,
+    expiryTitle,
     expiry,
     cvc,
     customIcons,
@@ -106,8 +108,8 @@ const CardView = props => {
           >
             {!name ? placeholder.name : name.toUpperCase()}
           </Text>
-          <Text style={[...baseSyle, styles.expiryLabel, styles.placeholder, isFocused('expiry')]}>
-            MONTH/YEAR
+          <Text style={[s.baseText, { fontFamily }, s.expiryLabel, !expiryTitle && s.placeholder, focused === "expiry" && s.focused]}>
+            {!expiryTitle ? placeholder.expiryTitle : expiryTitle.toUpperCase()}
           </Text>
           <Text style={[...baseSyle, styles.expiry, !expiry && styles.placeholder, isFocused('expiry')]}>
             {!expiry ? placeholder.expiry : expiry}
