@@ -10,7 +10,7 @@ import {
 
 import defaultIcons from '../Icons'
 import FlipCard from 'react-native-flip-card'
-import styles from './styles'
+import s from './styles'
 
 const BASE_SIZE = { width: 300, height: 190 }
 
@@ -36,7 +36,7 @@ const defaultProps = {
   placeholder: {
     number: '•••• •••• •••• ••••',
     name: 'NOME',
-    expiryTitle: "MONTH/YEAR",
+    expiryTitle: 'MONTH/YEAR',
     expiry: '••/••',
     cvc: '•••',
   },
@@ -76,12 +76,12 @@ const CardView = props => {
     ]
   }
 
-  const baseSyle = [styles.baseText, { fontFamily }]
+  const baseSyle = [s.baseText, { fontFamily }]
 
-  const isFocused = type => focused === type && styles.focused
+  const isFocused = type => focused === type && s.focused
 
   return (
-    <View style={[styles.cardContainer, containerSize]}>
+    <View style={[s.cardContainer, containerSize]}>
       <FlipCard
         style={{ borderWidth: 0 }}
         flipHorizontal
@@ -92,39 +92,39 @@ const CardView = props => {
         flip={shouldFlip}
       >
         <ImageBackground
-          style={[BASE_SIZE, styles.cardFace, transform]}
+          style={[BASE_SIZE, s.cardFace, transform]}
           source={imageFront}
         >
           <Image
-            style={[styles.icon]}
+            style={[s.icon]}
             source={Icons[brand]}
           />
-          <Text style={[...baseSyle, styles.number, !number && styles.placeholder, isFocused('number')]}>
+          <Text style={[...baseSyle, s.number, !number && s.placeholder, isFocused('number')]}>
             {!number ? placeholder.number : number}
           </Text>
           <Text
-            style={[...baseSyle, styles.name, !name && styles.placeholder, isFocused('name')]}
+            style={[...baseSyle, s.name, !name && s.placeholder, isFocused('name')]}
             numberOfLines={1}
           >
             {!name ? placeholder.name : name.toUpperCase()}
           </Text>
-          <Text style={[s.baseText, { fontFamily }, s.expiryLabel, !expiryTitle && s.placeholder, focused === "expiry" && s.focused]}>
+          <Text style={[s.baseText, { fontFamily }, s.expiryLabel, !expiryTitle && s.placeholder, focused === 'expiry' && s.focused]}>
             {!expiryTitle ? placeholder.expiryTitle : expiryTitle.toUpperCase()}
           </Text>
-          <Text style={[...baseSyle, styles.expiry, !expiry && styles.placeholder, isFocused('expiry')]}>
+          <Text style={[...baseSyle, s.expiry, !expiry && s.placeholder, isFocused('expiry')]}>
             {!expiry ? placeholder.expiry : expiry}
           </Text>
           {isAmex && (
-            <Text style={[...baseSyle, styles.amexCVC, !cvc && styles.placeholder, isFocused('cvc')]}>
+            <Text style={[...baseSyle, s.amexCVC, !cvc && s.placeholder, isFocused('cvc')]}>
               {!cvc ? placeholder.cvc : cvc}
             </Text>
           )}
         </ImageBackground>
         <ImageBackground
-          style={[BASE_SIZE, styles.cardFace, transform]}
+          style={[BASE_SIZE, s.cardFace, transform]}
           source={imageBack}
         >
-          <Text style={[styles.baseText, styles.cvc, !cvc && styles.placeholder, isFocused('cvc')]}>
+          <Text style={[s.baseText, s.cvc, !cvc && s.placeholder, isFocused('cvc')]}>
             {!cvc ? placeholder.cvc : cvc}
           </Text>
         </ImageBackground>
