@@ -1,7 +1,7 @@
 import connectToState from './connectToState'
 import CCF from './CreditCardInput'
 import LiteCCF from './LiteCreditCardInput'
-import CV from './CardView'
+import CV from './CardView/CardView'
 
 export const CreditCardInput = connectToState(CCF)
 export const LiteCreditCardInput = connectToState(LiteCCF)
