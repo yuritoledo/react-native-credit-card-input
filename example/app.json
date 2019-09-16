@@ -1,5 +1,17 @@
 {
+  "name": "example",
+  "displayName": "CreditCardReactNative",
   "expo": {
-    "sdkVersion": "23.0.0"
+    "name": "example",
+    "slug": "expo-template-bare",
+    "privacy": "unlisted",
+    "sdkVersion": "34.0.0",
+    "version": "1.0.0",
+    "entryPoint": "node_modules/expo/AppEntry.js",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ]
   }
 }
