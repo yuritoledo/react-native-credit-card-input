@@ -11,7 +11,7 @@ import ReactNative, {
   TextInput,
 } from "react-native";
 
-import CreditCard from "./CardView";
+import CreditCard from "./CardView/CardView";
 import CCInput from "./CCInput";
 import { InjectedProps } from "./connectToState";
 
