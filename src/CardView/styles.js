@@ -13,7 +13,6 @@ const styles = StyleSheet.create({
     width: 60,
     height: 40,
   },
-  resizeMode: 'contain',
   baseText: {
     color: 'rgba(255, 255, 255, 0.8)',
     backgroundColor: 'transparent',
