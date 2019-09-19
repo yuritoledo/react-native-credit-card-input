@@ -1,15 +1,13 @@
-> ## This project is a continuation of this one, that is abandoned: [https://github.com/sbycrosz/react-native-credit-card-input](https://github.com/sbycrosz/react-native-credit-card-input)
-
-> ## Soon: Will be added on NPM
+> ## This project is a continuation of this one, that is abandoned: [https://github.com/sbycrosz/react-native-input-credit-card](https://github.com/sbycrosz/react-native-input-credit-card)
 
 # React Native Credit Card Input
 Easy (and good looking) credit-card input for your React Native Project 💳 💳
 
 <p align="center">
-<img src="https://github.com/sbycrosz/react-native-credit-card-input/blob/master/preview-ios.gif?raw=true" width=200/>
-<img src="https://github.com/sbycrosz/react-native-credit-card-input/blob/master/preview-ios-lite.gif?raw=true" width=200/>
-<img src="https://github.com/sbycrosz/react-native-credit-card-input/blob/master/preview-android.gif?raw=true" width=200/>
-<img src="https://github.com/sbycrosz/react-native-credit-card-input/blob/master/preview-android-lite.gif?raw=true" width=200/>
+<img src="https://github.com/yuritoledo/react-native-input-credit-card/blob/master/preview-ios.gif?raw=true" width=200/>
+<img src="https://github.com/yuritoledo/react-native-input-credit-card/blob/master/preview-ios-lite.gif?raw=true" width=200/>
+<img src="https://github.com/yuritoledo/react-native-input-credit-card/blob/master/preview-android.gif?raw=true" width=200/>
+<img src="https://github.com/yuritoledo/react-native-input-credit-card/blob/master/preview-android-lite.gif?raw=true" width=200/>
 </p>
 
 Code:
@@ -33,13 +31,13 @@ Code:
 # Usage
 
 ```bash
-yarn add react-native-credit-card-input
+yarn add react-native-input-credit-card
 ```
 
 then add these lines in your react-native codebase
 
 ```js
-import { CreditCardInput, LiteCreditCardInput } from "react-native-credit-card-input";
+import { CreditCardInput, LiteCreditCardInput } from "react-native-input-credit-card";
 
 <CreditCardInput onChange={this._onChange} />
 // or
@@ -202,7 +200,3 @@ react-native run-android
 # TODO
 * Rewrite using hooks aiming performance and simplicity
 * Add unit and integration tests
-* Create example with [react-native-awesome-card-io](https://github.com/Kerumen/react-native-awesome-card-io)
-
-# Production App using react-native-credit-card-input
-* Grain.com.sg ([iOS](https://grain.com.sg/mobile/ios/download), [Android](https://grain.com.sg/mobile/android/download)) – Gourmet food delivery in Singapore

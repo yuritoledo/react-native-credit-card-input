@@ -35,7 +35,7 @@ const defaultProps = {
   name: '',
   placeholder: {
     number: '•••• •••• •••• ••••',
-    name: 'NOME',
+    name: 'NAME',
     expiryTitle: 'MONTH/YEAR',
     expiry: '••/••',
     cvc: '•••',
@@ -66,7 +66,7 @@ const CardView = props => {
 
   const Icons = { ...defaultIcons, ...customIcons }
   const isAmex = brand === 'american-express'
-  const shouldFlip = !isAmex && focused === 'cvc'
+  const shouldFlip = () => !isAmex && focused === 'cvc'
 
   const containerSize = { ...BASE_SIZE, height: BASE_SIZE.height * scale }
   const transform = {
@@ -89,7 +89,7 @@ const CardView = props => {
         friction={10}
         perspective={2000}
         clickable={false}
-        flip={shouldFlip}
+        flip={shouldFlip()}
       >
         <ImageBackground
           style={[BASE_SIZE, s.cardFace, transform]}
