@@ -1,7 +1,5 @@
 > ## This project is a continuation of this one, that is abandoned: [https://github.com/sbycrosz/react-native-credit-card-input](https://github.com/sbycrosz/react-native-credit-card-input)
 
-> ## Soon: Will be added on NPM
-
 # React Native Credit Card Input
 Easy (and good looking) credit-card input for your React Native Project 💳 💳
 

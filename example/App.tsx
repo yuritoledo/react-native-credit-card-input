@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { StyleSheet, View, Switch, Text } from 'react-native'
-import { CreditCardInput, LiteCreditCardInput } from 'react-native-credit-card-input'
+import { StyleSheet, View, Switch } from 'react-native'
+import { CreditCardInput, LiteCreditCardInput } from 'react-native-input-credit-card'
 
 const s = StyleSheet.create({
   switch: {
@@ -26,11 +26,11 @@ export default function App() {
 
 
   const onChange = formData => {
-    console.warn(formData)
+    console.log(formData)
   }
 
   const onFocus = field => {
-    console.warn('focusing', field)
+    console.log('focusing', field)
   }
 
   const setUseLiteCreditCardInput = useLiteVersion => {
@@ -58,23 +58,27 @@ export default function App() {
           onChange={onChange}
         />
       ) : (
-          <CreditCardInput
-            autoFocus
+        <CreditCardInput
+          autoFocus
+          requiresName
+          requiresCVC
+          labels={{
+            name: 'NOME',
+            number: 'NÚMERO DO CARTÃO',
+            expiry: 'EXPIRA EM',
+            cvc: 'CVC/CCV',
+            postalCode: 'POSTAL CODE',
+          }}
+          labelStyle={s.label}
+          inputStyle={s.input}
+          validColor='black'
+          invalidColor='red'
+          placeholderColor='darkgray'
 
-            requiresName
-            requiresCVC
-            requiresPostalCode
-
-            labelStyle={s.label}
-            inputStyle={s.input}
-            validColor='black'
-            invalidColor='red'
-            placeholderColor='darkgray'
-
-            onFocus={onFocus}
-            onChange={onChange}
-          />
-        )}
+          onFocus={onFocus}
+          onChange={onChange}
+        />
+      )}
     </View>
   )
 }
