@@ -109,9 +109,17 @@ export default class LiteCreditCardInput extends Component {
 
   _inputProps = field => {
     const {
-      inputStyle, validColor, invalidColor, placeholderColor,
-      placeholders, values, status,
-      onFocus, onChange, onBecomeEmpty, onBecomeValid,
+      inputStyle,
+      validColor,
+      invalidColor,
+      placeholderColor,
+      placeholders,
+      values,
+      status,
+      onFocus,
+      onChange,
+      onBecomeEmpty,
+      onBecomeValid,
       additionalInputsProps,
     } = this.props;
 
@@ -138,7 +146,15 @@ export default class LiteCreditCardInput extends Component {
   }
 
   render() {
-    const { focused, values: { number }, inputStyle, status: { number: numberStatus } } = this.props;
+    const {
+      focused,
+      values: { number },
+      inputStyle,
+      status: {
+        number: numberStatus
+      }
+    } = this.props;
+
     const showRightPart = focused && focused !== "number";
 
     return (
@@ -147,9 +163,11 @@ export default class LiteCreditCardInput extends Component {
           s.leftPart,
           showRightPart ? s.hidden : s.expanded,
         ]}>
-          <CCInput {...this._inputProps("number")}
+          <CCInput
+            {...this._inputProps("number")}
             keyboardType="numeric"
-            containerStyle={s.numberInput} />
+            containerStyle={s.numberInput}
+          />
         </View>
         <TouchableOpacity onPress={showRightPart ? this._focusNumber : this._focusExpiry}>
           <Image style={s.icon} source={Icons[this._iconToShow()]} />
@@ -158,22 +176,29 @@ export default class LiteCreditCardInput extends Component {
           s.rightPart,
           showRightPart ? s.expanded : s.hidden,
         ]}>
-          <TouchableOpacity onPress={this._focusNumber}
-            style={s.last4}>
+          <TouchableOpacity
+            onPress={this._focusNumber}
+            style={s.last4}
+          >
             <View pointerEvents={"none"}>
               <CCInput field="last4"
                 keyboardType="numeric"
                 value={numberStatus === "valid" ? number.substr(number.length - 4, 4) : ""}
                 inputStyle={[s.input, inputStyle]}
-                containerStyle={[s.last4Input]} />
+                containerStyle={[s.last4Input]}
+              />
             </View>
           </TouchableOpacity>
-          <CCInput {...this._inputProps("expiry")}
+          <CCInput
+            {...this._inputProps("expiry")}
             keyboardType="numeric"
-            containerStyle={s.expiryInput} />
-          <CCInput {...this._inputProps("cvc")}
+            containerStyle={s.expiryInput}
+          />
+          <CCInput
+            {...this._inputProps("cvc")}
             keyboardType="numeric"
-            containerStyle={s.cvcInput} />
+            containerStyle={s.cvcInput}
+          />
         </View>
       </View>
     );

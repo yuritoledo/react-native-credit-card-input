@@ -47,7 +47,6 @@ export default function App() {
 
       {useLiteVersion ? (
         <LiteCreditCardInput
-          autoFocus
           inputStyle={s.input}
 
           validColor='black'
@@ -59,7 +58,6 @@ export default function App() {
         />
       ) : (
         <CreditCardInput
-          autoFocus
           requiresName
           requiresCVC
           labels={{
@@ -68,6 +66,13 @@ export default function App() {
             expiry: 'EXPIRA EM',
             cvc: 'CVC/CCV',
             postalCode: 'POSTAL CODE',
+          }}
+          placeholders={{
+            name: 'NOME COMPLETO',
+            number: '1111 2222 3333 4444',
+            expiry: 'MM/AA',
+            cvc: 'CVC',
+            postalCode: '3211',
           }}
           labelStyle={s.label}
           inputStyle={s.input}
