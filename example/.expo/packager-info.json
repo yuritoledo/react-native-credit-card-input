@@ -3,8 +3,8 @@
   "expoServerPort": null,
   "packagerPort": null,
   "packagerPid": null,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null,
+  "expoServerNgrokUrl": "https://ki-nv4.anonymous.example.exp.direct",
+  "packagerNgrokUrl": "https://packager.ki-nv4.anonymous.example.exp.direct",
+  "ngrokPid": 1543,
   "webpackServerPort": null
 }

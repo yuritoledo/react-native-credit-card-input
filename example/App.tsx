@@ -79,7 +79,7 @@ export default function App() {
           validColor='black'
           invalidColor='red'
           placeholderColor='darkgray'
-
+          allowScroll
           onFocus={onFocus}
           onChange={onChange}
         />
