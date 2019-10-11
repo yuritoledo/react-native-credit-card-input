@@ -20,8 +20,8 @@ const s = StyleSheet.create({
     alignItems: "center",
   },
   form: {
-    marginTop: 20,
-    marginBottom: 20,
+    marginHorizontal: 20,
+    marginVertical: 20,
   },
   inputContainer: {
     marginLeft: 20,
@@ -186,7 +186,9 @@ export default class CreditCardInput extends Component {
           expiry={expiry}
           cvc={cvc}
         />
-        <ScrollView ref="Form"
+        <ScrollView
+          ref="Form"
+          horizontal
           keyboardShouldPersistTaps="always"
           scrollEnabled={allowScroll}
           showsHorizontalScrollIndicator={false}
