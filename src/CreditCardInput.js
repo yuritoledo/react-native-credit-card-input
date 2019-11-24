@@ -99,10 +99,10 @@ export default class CreditCardInput extends Component {
   };
 
   componentDidMount = () => this._focus(this.props.focused);
-
-  componentWillReceiveProps = newProps => {
-    if (this.props.focused !== newProps.focused) this._focus(newProps.focused);
-  };
+  
+  componentDidUpdate(prevProps) {
+    if (prevProps.focused !== this.props.focused) this._focus(this.props.focused);
+  }
 
   _focus = field => {
     if (!field) return;
