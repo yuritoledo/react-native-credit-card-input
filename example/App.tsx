@@ -63,7 +63,7 @@ export default function App() {
           labels={{
             name: 'NOME',
             number: 'NÚMERO DO CARTÃO',
-            expiry: 'EXPIRA EM',
+            expiry: 'EXPIRA EM HAKUNA MATATA',
             cvc: 'CVC/CCV',
             postalCode: 'POSTAL CODE',
           }}
