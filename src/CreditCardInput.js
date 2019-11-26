@@ -99,7 +99,7 @@ export default class CreditCardInput extends Component {
   };
 
   componentDidMount = () => this._focus(this.props.focused);
-  
+
   componentDidUpdate(prevProps) {
     if (prevProps.focused !== this.props.focused) this._focus(this.props.focused);
   }
@@ -208,7 +208,7 @@ export default class CreditCardInput extends Component {
           <CCInput
             {...this._inputProps("expiry")}
             keyboardType="numeric"
-            containerStyle={[s.inputContainer, inputContainerStyle, { width: EXPIRY_INPUT_WIDTH }]}
+            containerStyle={[s.inputContainer, inputContainerStyle]}
           />
           {requiresCVC && (
             <CCInput
