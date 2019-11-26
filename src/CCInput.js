@@ -46,13 +46,13 @@ export default class CCInput extends Component {
     containerStyle: {},
     inputStyle: {},
     labelStyle: {},
-    onFocus: () => {},
-    onChange: () => {},
-    onBecomeEmpty: () => {},
-    onBecomeValid: () => {},
+    onFocus: () => { },
+    onChange: () => { },
+    onBecomeEmpty: () => { },
+    onBecomeValid: () => { },
     additionalInputProps: {},
   };
-  
+
   componentDidUpdate(prevProps) {
     const { status, value, onBecomeEmpty, onBecomeValid, field } = prevProps;
     const { status: newStatus, value: newValue } = this.props;
@@ -69,14 +69,14 @@ export default class CCInput extends Component {
 
   render() {
     const { label, value, placeholder, status, keyboardType,
-            containerStyle, inputStyle, labelStyle,
-            validColor, invalidColor, placeholderColor,
-            additionalInputProps } = this.props;
+      containerStyle, inputStyle, labelStyle,
+      validColor, invalidColor, placeholderColor,
+      additionalInputProps } = this.props;
     return (
       <TouchableOpacity onPress={this.focus}
         activeOpacity={0.99}>
         <View style={[containerStyle]}>
-          { !!label && <Text style={[labelStyle]}>{label}</Text>}
+          {!!label && <Text style={[labelStyle]}>{label}</Text>}
           <TextInput ref="input"
             {...additionalInputProps}
             keyboardType={keyboardType}
@@ -86,8 +86,8 @@ export default class CCInput extends Component {
               s.baseInputStyle,
               inputStyle,
               ((validColor && status === "valid") ? { color: validColor } :
-              (invalidColor && status === "invalid") ? { color: invalidColor } :
-              {}),
+                (invalidColor && status === "invalid") ? { color: invalidColor } :
+                  {}),
             ]}
             underlineColorAndroid={"transparent"}
             placeholderTextColor={placeholderColor}
