@@ -43,6 +43,7 @@ const CARD_NUMBER_INPUT_WIDTH = Dimensions.get("window").width * 0.5;
 const NAME_INPUT_WIDTH = CARD_NUMBER_INPUT_WIDTH;
 const PREVIOUS_FIELD_OFFSET = 40;
 const POSTAL_CODE_INPUT_WIDTH = 120;
+const VERTICAL_INPUT_DEFAULT_WIDTH = Dimensions.get("window").width * 0.75;
 
 /* eslint react/prop-types: 0 */ // https://github.com/yannickcr/eslint-plugin-react/issues/106
 export default class CreditCardInput extends Component {
@@ -59,7 +60,7 @@ export default class CreditCardInput extends Component {
     validColor: PropTypes.string,
     invalidColor: PropTypes.string,
     placeholderColor: PropTypes.string,
-
+    values: PropTypes.object,
     cardImageFront: PropTypes.number,
     cardImageBack: PropTypes.number,
     cardScale: PropTypes.number,
@@ -69,6 +70,8 @@ export default class CreditCardInput extends Component {
     allowScroll: PropTypes.bool,
 
     additionalInputsProps: PropTypes.objectOf(PropTypes.shape(TextInput.propTypes)),
+
+    horizontal: PropTypes.bool,
   };
 
   static defaultProps = {
@@ -96,6 +99,7 @@ export default class CreditCardInput extends Component {
     placeholderColor: "gray",
     allowScroll: false,
     additionalInputsProps: {},
+    horizontal: true,
   };
 
   componentDidMount = () => this._focus(this.props.focused);
@@ -136,6 +140,7 @@ export default class CreditCardInput extends Component {
       additionalInputsProps,
     } = this.props;
 
+    console.log(values[field])
     return {
       inputStyle: [s.input, inputStyle],
       labelStyle: [s.inputLabel, labelStyle],
@@ -144,7 +149,7 @@ export default class CreditCardInput extends Component {
 
       label: labels[field],
       placeholder: placeholders[field],
-      value: values[field],
+      value: values.values[field],
       status: status[field],
 
       onFocus, onChange, onBecomeEmpty, onBecomeValid,
@@ -168,6 +173,7 @@ export default class CreditCardInput extends Component {
       cardScale,
       cardFontFamily,
       cardBrandIcons,
+      horizontal
     } = this.props;
 
     return (
@@ -188,10 +194,11 @@ export default class CreditCardInput extends Component {
         />
         <ScrollView
           ref="Form"
-          horizontal
+          horizontal={horizontal}
           keyboardShouldPersistTaps="always"
           scrollEnabled={allowScroll}
           showsHorizontalScrollIndicator={false}
+          showsVerticalScrollIndicator={false}
           style={s.form}
         >
           {requiresName && (
