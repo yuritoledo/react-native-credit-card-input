@@ -9,6 +9,7 @@ import ReactNative, {
   Dimensions,
   ViewPropTypes,
   TextInput,
+  KeyboardAvoidingView
 } from "react-native";
 
 import CreditCard from "./CardView/CardView";
@@ -28,6 +29,11 @@ const s = StyleSheet.create({
     marginTop: 20,
     marginBottom: 20,
   },
+  inputContainerVertical: {
+    marginLeft: 0,
+    marginTop: 5,
+    marginBottom: 5,
+  },
   inputLabel: {
     fontWeight: "bold",
   },
@@ -43,6 +49,7 @@ const CARD_NUMBER_INPUT_WIDTH = Dimensions.get("window").width * 0.5;
 const NAME_INPUT_WIDTH = CARD_NUMBER_INPUT_WIDTH;
 const PREVIOUS_FIELD_OFFSET = 40;
 const POSTAL_CODE_INPUT_WIDTH = 120;
+const VERTICAL_INPUT_DEFAULT_WIDTH = Dimensions.get("window").width * 0.75;
 
 /* eslint react/prop-types: 0 */ // https://github.com/yannickcr/eslint-plugin-react/issues/106
 export default class CreditCardInput extends Component {
@@ -59,7 +66,7 @@ export default class CreditCardInput extends Component {
     validColor: PropTypes.string,
     invalidColor: PropTypes.string,
     placeholderColor: PropTypes.string,
-
+    values: PropTypes.object,
     cardImageFront: PropTypes.number,
     cardImageBack: PropTypes.number,
     cardScale: PropTypes.number,
@@ -69,6 +76,8 @@ export default class CreditCardInput extends Component {
     allowScroll: PropTypes.bool,
 
     additionalInputsProps: PropTypes.objectOf(PropTypes.shape(TextInput.propTypes)),
+
+    horizontal: PropTypes.bool,
   };
 
   static defaultProps = {
@@ -96,6 +105,7 @@ export default class CreditCardInput extends Component {
     placeholderColor: "gray",
     allowScroll: false,
     additionalInputsProps: {},
+    horizontal: true,
   };
 
   componentDidMount = () => this._focus(this.props.focused);
@@ -168,10 +178,11 @@ export default class CreditCardInput extends Component {
       cardScale,
       cardFontFamily,
       cardBrandIcons,
+      horizontal
     } = this.props;
 
     return (
-      <View style={s.container}>
+      <KeyboardAvoidingView style={s.container} behavior="padding" enabled>
         <CreditCard
           focused={focused}
           brand={type}
@@ -188,44 +199,45 @@ export default class CreditCardInput extends Component {
         />
         <ScrollView
           ref="Form"
-          horizontal
+          horizontal={horizontal}
           keyboardShouldPersistTaps="always"
           scrollEnabled={allowScroll}
           showsHorizontalScrollIndicator={false}
+          showsVerticalScrollIndicator={false}
           style={s.form}
         >
           {requiresName && (
+              <CCInput
+                {...this._inputProps("name")}
+                containerStyle={[horizontal ? s.inputContainer : s.inputContainerVertical, inputContainerStyle, { width: horizontal ? NAME_INPUT_WIDTH : VERTICAL_INPUT_DEFAULT_WIDTH }]}
+              />
+            )}
             <CCInput
-              {...this._inputProps("name")}
-              containerStyle={[s.inputContainer, inputContainerStyle, { width: NAME_INPUT_WIDTH }]}
-            />
-          )}
-          <CCInput
-            {...this._inputProps("number")}
-            keyboardType="numeric"
-            containerStyle={[s.inputContainer, inputContainerStyle, { width: CARD_NUMBER_INPUT_WIDTH }]}
-          />
-          <CCInput
-            {...this._inputProps("expiry")}
-            keyboardType="numeric"
-            containerStyle={[s.inputContainer, inputContainerStyle]}
-          />
-          {requiresCVC && (
-            <CCInput
-              {...this._inputProps("cvc")}
+              {...this._inputProps("number")}
               keyboardType="numeric"
-              containerStyle={[s.inputContainer, inputContainerStyle, { width: CVC_INPUT_WIDTH }]}
+              containerStyle={[horizontal ? s.inputContainer : s.inputContainerVertical, inputContainerStyle, { width: horizontal ?  CARD_NUMBER_INPUT_WIDTH : VERTICAL_INPUT_DEFAULT_WIDTH }]}
             />
-          )}
-          {requiresPostalCode && (
             <CCInput
-              {...this._inputProps("postalCode")}
+              {...this._inputProps("expiry")}
               keyboardType="numeric"
-              containerStyle={[s.inputContainer, inputContainerStyle, { width: POSTAL_CODE_INPUT_WIDTH }]}
+              containerStyle={[horizontal ? s.inputContainer : s.inputContainerVertical, inputContainerStyle, {width: horizontal ? EXPIRY_INPUT_WIDTH : VERTICAL_INPUT_DEFAULT_WIDTH}]}
             />
-          )}
+            {requiresCVC && (
+              <CCInput
+                {...this._inputProps("cvc")}
+                keyboardType="numeric"
+                containerStyle={[horizontal ? s.inputContainer : s.inputContainerVertical, inputContainerStyle, { width: horizontal ? CVC_INPUT_WIDTH : VERTICAL_INPUT_DEFAULT_WIDTH }]}
+              />
+            )}
+            {requiresPostalCode && (
+              <CCInput
+                {...this._inputProps("postalCode")}
+                keyboardType="numeric"
+                containerStyle={[horizontal ? s.inputContainer : s.inputContainerVertical, inputContainerStyle, { width: horizontal ?  POSTAL_CODE_INPUT_WIDTH : VERTICAL_INPUT_DEFAULT_WIDTH }]}
+              />
+            )}
         </ScrollView>
-      </View>
+      </KeyboardAvoidingView>
     );
   }
 }
