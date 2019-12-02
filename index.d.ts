@@ -82,8 +82,25 @@ declare module 'react-native-input-credit-card' {
     additionalInputsProps?: object
   }
 
+  export interface CardViewInputs {
+    focused?: 'cvc'| 'expiry'
+    brand?: string
+    name?: string
+    number?: string
+    expiry?: string
+    cvc?: string
+    paceholder?: object
+    scale?: number
+    fontFamily?: string
+    imageFront?: number
+    imageBack?: number
+    customIcons?: object
+  }
+
   export class CreditCardInput extends React.Component<ICreditCardInputs> {}
 
   export class LiteCreditCardInput extends React.Component<ICreditCardInputs> {}
+
+  export class CardView extends React.Component<CardViewInputs> {}
 
 }
