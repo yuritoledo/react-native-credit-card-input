@@ -40,9 +40,11 @@ declare module 'react-native-input-credit-card' {
   }
 
   export interface IInputPlaceholders {
+    name: string
     number: string
-    expirty: string
+    expiry: string
     cvc: string
+    postalCode: string
   }
 
   export interface ILiteCreditCardInputs {
