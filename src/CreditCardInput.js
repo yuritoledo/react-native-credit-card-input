@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import ReactNative, {
+import {
   NativeModules,
   View,
   Text,
@@ -9,6 +9,7 @@ import ReactNative, {
   Dimensions,
   ViewPropTypes,
   TextInput,
+  findNodeHandle
 } from "react-native";
 
 import CreditCard from "./CardView/CardView";
@@ -108,7 +109,7 @@ export default class CreditCardInput extends Component {
     if (!field) return;
 
     const scrollResponder = this.refs.Form.getScrollResponder();
-    const nodeHandle = ReactNative.findNodeHandle(this.refs[field]);
+    const nodeHandle = findNodeHandle(this.refs[field]);
 
     NativeModules.UIManager.measureLayoutRelativeToParent(nodeHandle,
       e => { throw e; },
