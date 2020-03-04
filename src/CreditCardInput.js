@@ -70,6 +70,8 @@ export default class CreditCardInput extends Component {
     allowScroll: PropTypes.bool,
 
     additionalInputsProps: PropTypes.objectOf(PropTypes.shape(TextInput.propTypes)),
+
+    scrollViewProps: PropTypes.object,
   };
 
   static defaultProps = {
@@ -169,6 +171,7 @@ export default class CreditCardInput extends Component {
       cardScale,
       cardFontFamily,
       cardBrandIcons,
+      scrollViewProps,
     } = this.props;
 
     return (
@@ -194,6 +197,7 @@ export default class CreditCardInput extends Component {
           scrollEnabled={allowScroll}
           showsHorizontalScrollIndicator={false}
           style={s.form}
+          {...scrollViewProps}
         >
           {requiresName && (
             <CCInput
