@@ -61,7 +61,8 @@ const CardView = props => {
     imageFront,
     imageBack,
     scale,
-    fontFamily
+    fontFamily,
+    style
   } = props
 
   const Icons = { ...defaultIcons, ...customIcons }
@@ -81,7 +82,7 @@ const CardView = props => {
   const isFocused = type => focused === type && s.focused
 
   return (
-    <View style={[s.cardContainer, containerSize]}>
+    <View style={[s.cardContainer, containerSize, style]}>
       <FlipCard
         style={{ borderWidth: 0 }}
         flipHorizontal
