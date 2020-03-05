@@ -25,7 +25,7 @@ const s = StyleSheet.create({
     overflow: "hidden",
   },
   icon: {
-    width: 48,
+    width: 60,
     height: 40,
   },
   expanded: {
